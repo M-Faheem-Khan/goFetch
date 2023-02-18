@@ -15,12 +15,15 @@ func main() {
 
 	header, divider := generateHeader(si)
 
-	fmt.Println(utils.FormatHeaderString(header))
-	fmt.Println(utils.FormatBoldString(divider))
-	fmt.Printf("%s: %s\n", utils.FormatKeyString("OS"), si.OS.Name)
-	fmt.Printf("%s: %s\n", utils.FormatKeyString("Kernel"), si.Kernel.Release)
-	fmt.Printf("%s: %s\n", utils.FormatKeyString("CPU"), si.CPU.Model)
-	fmt.Printf("%s: %d mb\n", utils.FormatKeyString("Memory"), si.Memory.Size)
+	header = utils.FormatHeaderString(header)
+	divider = utils.FormatBoldString(divider)
+	os := fmt.Sprintf("%s: %s", utils.FormatKeyString("OS"), si.OS.Name)
+	kernel := fmt.Sprintf("%s: %s", utils.FormatKeyString("Kernel"), si.Kernel.Release)
+	cpu := fmt.Sprintf("%s: %s", utils.FormatKeyString("CPU"), si.CPU.Model)
+	memory := fmt.Sprintf("%s: %d mb", utils.FormatKeyString("Memory"), si.Memory.Size)
+
+	fmt.Println(utils.GetUbuntuLogo(header, divider, os, kernel, cpu, memory))
+
 }
 
 func generateHeader(si sysinfo.SysInfo) (string, string) {
