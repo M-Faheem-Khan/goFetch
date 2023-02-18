@@ -5,6 +5,7 @@ import (
 	"os/user"
 	"strings"
 
+	"github.com/M-Faheem-Khan/goFetch/utils"
 	"github.com/zcalusic/sysinfo"
 )
 
@@ -14,12 +15,12 @@ func main() {
 
 	header, divider := generateHeader(si)
 
-	fmt.Println(header)
-	fmt.Println(divider)
-	fmt.Printf("OS: %s\n", si.OS.Name)
-	fmt.Printf("Kernel: %s\n", si.Kernel.Release)
-	fmt.Printf("CPU: %s\n", si.CPU.Model)
-	fmt.Printf("Memory: %dmb\n", si.Memory.Size)
+	fmt.Println(utils.FormatHeaderString(header))
+	fmt.Println(utils.FormatBoldString(divider))
+	fmt.Printf("%s: %s\n", utils.FormatKeyString("OS"), si.OS.Name)
+	fmt.Printf("%s: %s\n", utils.FormatKeyString("Kernel"), si.Kernel.Release)
+	fmt.Printf("%s: %s\n", utils.FormatKeyString("CPU"), si.CPU.Model)
+	fmt.Printf("%s: %d mb\n", utils.FormatKeyString("Memory"), si.Memory.Size)
 }
 
 func generateHeader(si sysinfo.SysInfo) (string, string) {
@@ -44,3 +45,5 @@ func join(strs ...string) string {
 	}
 	return sb.String()
 }
+
+// EOF - Changes should reflect
