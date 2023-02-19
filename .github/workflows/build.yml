@@ -9,7 +9,7 @@ on:
 
 jobs:
 
-  build:
+  ubuntu-build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -24,4 +24,35 @@ jobs:
       
     - name: Run goFetch
       run: ./goFetch
+
+  macos-build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.19
+
+    - name: Build
+      run: go build -v .
+      
+    - name: Run goFetch
+      run: ./goFetch
   
+  windows-build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.19
+
+    - name: Build
+      run: go build -v .
+      
+    - name: Run goFetch
+      run: ./goFetch
