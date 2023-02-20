@@ -22,8 +22,7 @@ func main() {
 	cpu := fmt.Sprintf("%s: %s", utils.FormatKeyString("CPU"), si.CPU.Model)
 	memory := fmt.Sprintf("%s: %d mb", utils.FormatKeyString("Memory"), si.Memory.Size)
 
-	fmt.Println(utils.GetUbuntuLogo(header, divider, os, kernel, cpu, memory))
-
+	fmt.Println(utils.GenerateOutput(header, divider, os, kernel, cpu, memory))
 }
 
 func generateHeader(si sysinfo.SysInfo) (string, string) {
