@@ -12,6 +12,10 @@ The utility displays the following information.
 - CPU Model
 - Memory (MB)
 
+![image](https://user-images.githubusercontent.com/17150767/220039830-dfa5e0f5-36e8-4c04-bee6-2da2d8e501f2.png)
+
+
+### Build
 ```sh
 env GOOS=linux GOARCH=amd64 go build -o goFetch main.go
 ```
